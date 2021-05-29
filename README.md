@@ -15,6 +15,7 @@
 The impact of the 2020 coronavirus pandemic has been largely disruptive.
 In India, more than 332,000 Covid-19 infections were reported today, along with approximately 2,250 deaths.
 During this tough situation , We help to reduce the emotional stress baggage and uncertainties of the deadly virus.
+
 **OBJECTIVE : COVIAST is a platform to assist the public with their blood sample report in hand and predict the virus attack along with informative home remedial measures to combat the deadly virus. 
 Given the large number of literature and the rapid spread of COVID-19, it is hard for us to keep up with new information on the virus , thus providing users a one stop solution through frequent updations.**
 
