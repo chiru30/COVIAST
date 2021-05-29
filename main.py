@@ -21,7 +21,7 @@ rad=st.sidebar.radio("Menu",["COVIAST","ASSISTANCE","DETECTION OF COVID-19 (BLOO
 if rad == "COVIAST":
     x,y,z=st.beta_columns(3)
     
-    y.image('29C65631-6E02-48B8-8C57-735AA111141C.jpeg')
+    y.image('STATIC//29C65631-6E02-48B8-8C57-735AA111141C.jpeg')
 
 
     
@@ -80,7 +80,7 @@ if rad == "ASSISTANCE":
     b1.markdown(html_temp, unsafe_allow_html = True)
     a5,b5=st.beta_columns(2)
     a5.header('Blood tests for COVID-19')
-    a5.image('blood.jpg')
+    a5.image('STATIC//blood.jpg')
     if a5.button("READ"):
         st.subheader("The most commonly prescribed blood tests when a doctor suspects COVID or you are COVID positive are the following")
         st.write("1. CRP C reactive protein")
@@ -93,13 +93,13 @@ if rad == "ASSISTANCE":
         st.write("8. Serum Creatinine")
     a1,b1=st.beta_columns(2)
     a1.header('CT Scan Vs Radiology')
-    a1.image('ct_scan.jpg')
+    a1.image('STATIC//ct_scan.jpg')
     if a1.button("READ MORE"):
         st.write("COVID-19 usually presents with fever (85%), cough (70%) and shortness of breath (43%), but abdominal and other symptoms are possible and the disease can be asymptomatic.Overal mortality rate is 2.3% in some series of patients who had a positive test for COVID-19.")
         a3,b3=st.beta_columns(2)
         a3.header("PCR TEST")
         b3.subheader("The PCR-test is very specific, but has a lower sensitivity of 65-95%, which means that the test can be negative even when the patient is infected. Another problem is, that you have to wait for the test results, which can take more than 24 hours, while CT results are available right away.Common laboratory findings in COVID-19 are a decreased lymphocyte count and an increased CRP and high-sensitivity C-reactive protein level.")
-        a3.image("pcr.jpg")
+        a3.image("STATIC//pcr.jpg")
         
         st.header("CT SCAN")
         
@@ -107,47 +107,47 @@ if rad == "ASSISTANCE":
         """,height=480)
 
         st.header("INITIAL CT PATTERNS")
-        st.image("initial.png")
+        st.image("STATIC//initial.png")
 
         p,q=st.beta_columns(2)
         p.header("CT SCAN Vs. CHEST RADIOGRAPH")
-        p.image("X-ray.jpg")
+        p.image("STATIC//X-ray.jpg")
         q.subheader("The chest film is insensitive early in the disease.Here a comparison of a chest radiograph and CT image.The ground glass opacities in the right lower lobe on the CT (red arrows) are not visible on the chest radiograph, which was taken 1 hour prior to the CT-study (1). ")
 
         x1,y1=st.beta_columns(2)
         x1.subheader("I) GROUND GLASS")
-        x1.image("GG.jpg")
+        x1.image("STATIC//GG.jpg")
         y1.subheader("Ground glass (GGO) pattern is the most common finding in COVID-19 infections.They are usually multifocal, bilateral and peripheral, but in the early phase of the disease the GGO may present as a unifocal lesion, most commonly located in the inferior lobe of the right lung (6).CT-images of a young male, who had fever for ten days with progressive coughing and shortness of breath.Saturation at admission was 66%.The PCR test was positive for COVID-19.There are widespread bilateral ground-glass opacities with a posterior predominance.")
         
         x2,y2=st.beta_columns(2)
         x2.subheader("II) CRAZY PAVING")
-        x2.image("vascular.jpg")
+        x2.image("STATIC//vascular.jpg")
         y2.subheader("Sometimes there are thickened interlobular and intralobular lines in combination with a ground glass pattern.This is called crazy paving.It is believed that this pattern is seen in a somewhat later stage.")
         
         x3,y3=st.beta_columns(2)
         x3.subheader("III) VASCULAR DILATION")
-        x3.image("paving.jpg")
+        x3.image("STATIC//paving.jpg")
         y3.subheader("A typical finding in the area of ground glass is widening of the vessels (arrow).It occurs under any circumstances which bring about increased metabolic activity, and appears under all sorts of conditions which are unassociated with the symptoms or morphology of inflammation")
         
         x4,y4=st.beta_columns(2)
         x4.subheader("IV) TRACTION BRONCHIECTASIS")
-        x4.image("traction.jpg")
+        x4.image("STATIC//traction.jpg")
         y4.subheader("Another common finding in the areas of ground glass is traction bronchiectasis (arrows).")
 
         x5,y5=st.beta_columns(2)
         x5.header("V) Subpleural bands and Architectural distortion")
-        x5.image("sub.jpg")
+        x5.image("STATIC//sub.jpg")
         y5.subheader("In some case there is architectural distortion with the formation of subpleural bands.")
 
 
 
     b1.header('Prone Positioning to increase O2 supply')
-    b1.image('52_Pr_i160.png')
+    b1.image('STATIC//52_Pr_i160.png')
     if b1.button("KNOW MORE"):
         st.write("PRONING is the process of turning a patient with precise, safe motions, from their back onto their abdomen (stomach), so the individual is lying face down.")
         st.write("Proning is a medically accepted position to improves breathing comfort and oxygenation.")
         st.write("It is extremely beneficial in COVID-19 patients with compromised breathing comfort, especially during home isolation.")
-        st.image("B3D05643-4BBD-460A-ADE8-89DFB0F90188.jpeg")
+        st.image("STATIC//B3D05643-4BBD-460A-ADE8-89DFB0F90188.jpeg")
         st.write("Caution: ")
         st.write("\n")
         st.write("Avoid proning for an hour after meals ")
@@ -158,7 +158,7 @@ if rad == "ASSISTANCE":
         st.write("Keep a track of any pressure sores or injuries, especially , around bony prominences")
         a3,b3,c3=st.beta_columns(3)
         a3.write('[82-year-old UP woman beats COVID-19 using the proning technique](https://in.news.yahoo.com/82-old-woman-beats-covid-120713527.html)')
-        a3.image("success.jpg")
+        a3.image("STATIC//success.jpg")
 
 
 
@@ -203,5 +203,3 @@ if rad == "DETECTION OF COVID-19 (BLOOD REPORT)":
     if __name__=='__main__':
         main()
 
-if rad == "LITERATURE CLUSTERING":
-    st.header("This tool was created to help make it easier for trained professionals to sift through many, many publications related to the virus, and find their own determinations.")
