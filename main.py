@@ -197,9 +197,9 @@ if rad == "DETECTION OF COVID-19 (BLOOD REPORT)":
             st.success(Predict(lbm_model.predict(inputs)))
     def Predict(num):
         if num == 0:
-            return 'Positive'
-        else:
             return 'Negative'
+        else:
+            return 'Positive'
     if __name__=='__main__':
         main()
 
