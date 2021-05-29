@@ -1,4 +1,4 @@
-rom altair.vegalite.v4.schema.core import Align
+from altair.vegalite.v4.schema.core import Align
 import streamlit as st
 # To make things easier later, we're also importing numpy and pandas for
 # working with sample data.
@@ -8,6 +8,7 @@ import base64
 import zipfile
 import tempfile
 import requests
+import pickle
 
 
 import streamlit.components.v1 as components
@@ -15,7 +16,8 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 
 
-rad=st.sidebar.radio("Menu",["COVIAST","COVID INTENSITY PREDICTION","DETECTION OF COVID-19 ","LITERATURE CLUSTERING"])
+
+rad=st.sidebar.radio("Menu",["COVIAST","ASSISTANCE","DETECTION OF COVID-19 (BLOOD REPORT)"])
 if rad == "COVIAST":
     x,y,z=st.beta_columns(3)
     
@@ -36,16 +38,14 @@ if rad == "COVIAST":
     """
     b2.markdown(html_temp, unsafe_allow_html = True)
 
-    a3,b3,c3=st.beta_columns(3)
-    if a3.button("COVID INTENSITY PREDICTION"):
-        a3.write("To make things easier in such tough times ,Based on the results of laboratory tests commonly collected among confirmed COVID-19 cases during a visit to the emergency room,predicting which patients will need to be admitted to a general ward, semi-intensive unit or intensive care unit")
-        a3.write("HOP ONTO THE SIDE BAR TO CHECK THE INTENSITY OF INFECTION")
-    if b3.button("DETECTION OF COVID-19"):
-        b3.write("This is the case of the COVID19 Global Forecasting, in which fitting the worldwide data in order to predict the pandemic evolution,thereby helping to determine which factors impact the transmission behavior of COVID-19.")
-        b3.write("HOP ONTO THE SIDE BAR TO CHECK OUT COVID19 GLOBAL FORECASTING")
-    if c3.button("LITERATURE CLUSTERING"):
-        c3.write("Given the large number of literature and the rapid spread of COVID-19, it is difficult for health professionals to keep up with new information on the virus.This tool was created to help make it easier for trained professionals to sift through many, many publications related to the virus, and find their own determinations.")
-        c3.write("HOP ONTO THE SIDE BAR TO CHECK OUT LITERATURE CLUSTERING")
+    a3,b3,=st.beta_columns(2)
+    
+    if a3.button("DETECTION OF COVID-19 (BLOOD REPORT)"):
+        a3.write("Predicting confirmed COVID-19 cases among suspected cases.Based on the results of laboratory tests commonly collected for a suspected COVID-19 case during a visit to the emergency room, model predicts the test result for SARS-Cov-2 (positive/negative)")
+        a3.write("HOP ONTO THE SIDE BAR TO CHECK OUT YOUR BLOOD REPORT SAMPLE")
+    if b3.button("ASSISTANCE AND STUDY ABOUT ADVANCEMENTS"):
+        b3.write("Given the large number of literature and the rapid spread of COVID-19, it is difficult for us to keep up with new information on the virus.This tool was created to help make it easier  to sift through many, many publications related to the virus, and find their own determinations.")
+        b3.write("HOP ONTO THE SIDE BAR TO CHECK OUT LATEST COVID-19 NEWS AND ADVANCEMENTS")
     
     p,q,r=st.beta_columns(3)
     html_temp = """
@@ -67,6 +67,10 @@ if rad == "COVIAST":
     #.image('giphy2.gif')
 
 
+    
+
+    
+if rad == "ASSISTANCE":
     a1,b1,c1=st.beta_columns(3)
     html_temp = """
     <div style="background:#9acbee;padding:10px">
@@ -74,9 +78,19 @@ if rad == "COVIAST":
     </div>
     """
     b1.markdown(html_temp, unsafe_allow_html = True)
-
-    
-
+    a5,b5=st.beta_columns(2)
+    a5.header('Blood tests for COVID-19')
+    a5.image('blood.jpg')
+    if a5.button("READ"):
+        st.subheader("The most commonly prescribed blood tests when a doctor suspects COVID or you are COVID positive are the following")
+        st.write("1. CRP C reactive protein")
+        st.write("2. CBC Complete Blood Picture")
+        st.write("3. Lactate Dehydrogenase (LDH) Test")
+        st.write("4. D Dimer")
+        st.write("5. Interleukin 6")
+        st.write("6. LFT: Liver Function test")
+        st.write("7. Ferritin")
+        st.write("8. Serum Creatinine")
     a1,b1=st.beta_columns(2)
     a1.header('CT Scan Vs Radiology')
     a1.image('ct_scan.jpg')
@@ -146,12 +160,48 @@ if rad == "COVIAST":
         a3.write('[82-year-old UP woman beats COVID-19 using the proning technique](https://in.news.yahoo.com/82-old-woman-beats-covid-120713527.html)')
         a3.image("success.jpg")
 
-if rad == "COVID INTENSITY PREDICTION":
-    st.header("Predicting admission to general ward, semi-intensive unit or intensive care unit among confirmed COVID-19 cases")
-    
 
-if rad == "DETECTION OF COVID-19 ":
-    st.header("This is the case of the COVID19 Global Forecasting, in which fitting the worldwide data in order to predict the pandemic evolution,thereby helping to determine which factors impact the transmission behavior of COVID-19.")
+
+
+
+if rad == "DETECTION OF COVID-19 (BLOOD REPORT)":
+    st.header("Predicting confirmed COVID-19 cases among suspected cases.Based on the results of laboratory tests commonly collected for a suspected COVID-19 case during a visit to the emergency room, model predicts the test result for SARS-Cov-2 (positive/negative)?")
+    #a=st.slider("Age",1,100)
+    #st.write('The current number is ', a)
+    lbm_model = pickle.load(open('blood_report.pkl','rb'))
+    def main():
+        import streamlit as st
+        
+        m1=st.slider("Patient age",1,100)
+        
+        m2=st.slider("Hematocrit",-2.0,2.0)
+        m3=st.slider("Haemoglobin",-2.0,2.0)
+        m4=st.slider("Platelets",-2.0,2.0)
+        m5=st.slider("platelet_volume",-2.0,2.0)
+        m6=st.slider("Red blood cells",-2.0,2.0)
+        m7=st.slider("lymphocytes",-2.0,2.0)
+        m8=st.slider("Mean corpuscular haemoglobin concentration",-2.0,2.0)
+        m9=st.slider("Leukocytes",-2.0,2.0)
+        m10=st.slider("Basophils",-2.0,2.0)
+        m11=st.slider("Mean corpuscular haemoglobin",-2.0,2.0)
+        m12=st.slider("Eosinophils",-2.0,2.0)
+        m13=st.slider("Mean corpuscular volume",-2.0,2.0)
+        m14=st.slider("Monocytes",-2.0,2.0)
+        m15=st.slider("Red blood cell distribution width",-2.0,2.0)
+        m16 = st.selectbox("is_sick",(True,False))
+
+        #inputs=[[Patient age ,Patient admitted_to_regular_ward(1=yes,0=no)','Patient admitted to semi intensive unit(1=yes,0=no)','Patient admitted to intensive unit(1=yes,0=no)','Hematocrit','Haemoglobin','Platelets','Mean Platelet Value','Red blood cells','lymphocytes','Mean corpuscular haemoglobin concentration','Leukocytes','Basophils','Mean corpuscular haemoglobin','Eosinophils','Mean corpuscular volume','Monocytes','Red blood cell distribution width','Serum glucose','Neutrophils','Urea','Proteina C reativa','Potassium','Sodium']]
+        inputs=[[m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16]]
+
+        if st.button('Predict'):
+            st.success(Predict(lbm_model.predict(inputs)))
+    def Predict(num):
+        if num == 0:
+            return 'Positive'
+        else:
+            return 'Negative'
+    if __name__=='__main__':
+        main()
 
 if rad == "LITERATURE CLUSTERING":
     st.header("This tool was created to help make it easier for trained professionals to sift through many, many publications related to the virus, and find their own determinations.")
