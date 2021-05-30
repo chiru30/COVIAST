@@ -23,7 +23,7 @@ Given the large number of literature and the rapid spread of COVID-19, it is har
 
 ## Screenshots
 <p align="center"> 
-<img width="450"  src="pic1.png"  />
+<img width="450"  src="Visuals/Bloodtest.PNG"  />
 <img width="450"  src="pic2.png"  />
 </p
 
