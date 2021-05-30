@@ -47,8 +47,8 @@ Given the large number of literature and the rapid spread of COVID-19, it is har
 
 ## Code Examples
 <p align="center"> 
-<img width="450"  src="random_forest.png"  />
-<img width="450"  src="backend_code.png"  />
+<img width="450"  src="48DC92FF-7428-4288-9206-D8CCE50074C9.jpeg"  />
+<img width="450"  src="508318B1-2AF6-499A-B9AC-5BF333594039.jpeg"  />
 </p
 
 ## Features
