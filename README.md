@@ -29,7 +29,7 @@ Given the large number of literature and the rapid spread of COVID-19, it is har
 <img width="450"  src="Visuals/Visuals.PNG"  />
 <img width="450"  src="Visuals/CTScan.PNG"  />
   <img width="450"  src="Visuals/page2.PNG"  />
-  <img width="450"  src="Visuals/Screenshot(410).png"  />
+  <img width="450"  src="Visuals/Screenshot (410).png"  />
 </p
 
 
