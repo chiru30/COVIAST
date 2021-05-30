@@ -2,7 +2,7 @@
 ## YOUR COVID ASSISTANCE
 ### By team - DATA UNRAVEL
 
-**Deployment Link:https://share.streamlit.io/chiru30/coviast/main/main.py
+#### Deployment Link:https://share.streamlit.io/chiru30/coviast/main/main.py
 
 
 ## Table of contents
